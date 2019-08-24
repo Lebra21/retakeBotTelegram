@@ -1,6 +1,4 @@
 import telebot , constants , random , os
-from telebot.types import Message
-
 
 bot = telebot.TeleBot(constants.TOKEN)
 
@@ -16,8 +14,6 @@ def send_helper(message):
 
 
  # Обработчик сообщений, содержащих документ с mime_type 'text/plain' (обычный текст)
-@bot.message_handler(func=lambda message: True)
-def send_smile(message: Message):
-    bot.reply_to(message, random.choice(constants.SMILES))
+
 
 bot.polling()
