@@ -9,6 +9,6 @@ def send_welcome(message):
 
 @bot.message_handler(commands=['help'])
 def send_helper(message):
-	bot.reply_to(message,"Botik idi nahui")
+	bot.reply_to(message,"Darkhan idi nahui")
 
 bot.polling()
