@@ -1,10 +1,15 @@
-import telebot , constants , random , os
+import telebot , constants , random , os , time
+from telebot.types import Message
+
 
 bot = telebot.TeleBot(constants.TOKEN)
+keyboard = telebot.types.ReplyKeyboardMarkup(True,True)
+keyboard.row('Alisher is monkey?','/help')
+
 
 @bot.message_handler(commands=['start'])
 def send_welcome(message):
-	bot.reply_to(message, "Howdy, how are you doing?")
+    bot.reply_to(message, "Welcome!",reply_markup=keyboard)
 
 @bot.message_handler(commands=['help'])
 def send_helper(message):
@@ -14,6 +19,17 @@ def send_helper(message):
 
 
  # Обработчик сообщений, содержащих документ с mime_type 'text/plain' (обычный текст)
+@bot.message_handler(func=lambda message: True)
+def send_smile(message: Message):
+    if 'Alisher is monkey?' in message.text:
+        bot.reply_to(message, random.choice(constants.smiles))
+        return
+    else:
+        pass
 
 
-bot.polling()
+while True:
+    try:
+        bot.polling(none_stop=True)
+    except Exception:
+        time.sleep(15)
