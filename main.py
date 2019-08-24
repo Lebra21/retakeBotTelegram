@@ -1,4 +1,5 @@
 import telebot , constants , random , os
+from telebot.types import Message
 
 bot = telebot.TeleBot(constants.TOKEN)
 
@@ -11,14 +12,11 @@ def send_helper(message):
 	bot.reply_to(message,"Darkhan idi nahui")
 
 # Обработчик для документов и аудиофайлов
-@bot.message_handler(content_types=['document', 'audio'])
-def handle_docs_audio(message):
-    pass
 
 
  # Обработчик сообщений, содержащих документ с mime_type 'text/plain' (обычный текст)
-@bot.message_handler(func=lambda message: message.document.mime_type == 'text/plain', content_types=['document'])
-def handle_text_doc(message):
-    bot.reply_to(message,random.choice(constants.SMILES))
+@bot.message_handler(func=lambda message: True)
+def send_smile(message: Message):
+    bot.reply_to(message, random.choice(constants.SMILES))
 
 bot.polling()
