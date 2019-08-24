@@ -1,2 +1,1 @@
-worker: python3 main.py
-web: gunicron main.py:app
+worker: python3 main.py $PORT
