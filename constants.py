@@ -1,0 +1,6 @@
+
+TOKEN = '929241007:AAFrhbemrhXy-N8IVA0e0qy6dCMLYxHkj0Q'
+
+SMILES = [
+    '%F0%9F%98%81'
+]
