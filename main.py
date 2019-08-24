@@ -1,4 +1,4 @@
-import telebot , constants , random , os
+import telebot , constants , random , os , emoji
 from telebot.types import Message
 
 
