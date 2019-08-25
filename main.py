@@ -12,12 +12,12 @@ def send_welcome(message):
     user_markup.row('/start','/stop')
     user_markup.row('photo','audio','media')
     user_markup.row('sticker','video','voice','location')
-    bot.send_message(message.from_user.id,'Welcome!',reply_markup=user_markup)
+    bot.reply_to(message.from_user.id,'Welcome!',reply_markup=user_markup)
 
 @bot.message_handler(commands=['stop'])
 def send_stop(message):
     hide_markup = telebot.types.ReplyKeyboardRemove()
-    bot.send_message(message.from_user.id,'...',reply_markup=hide_markup)
+    bot.reply_to(message.from_user.id,'...',reply_markup=hide_markup)
 
 @bot.message_handler(commands=['help'])
 def send_helper(message):
