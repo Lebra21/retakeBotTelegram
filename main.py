@@ -40,9 +40,7 @@ def send_text(message):
         bot.send_chat_action(message.from_user.id, 'upload_voice')
         bot.send_voice(message.from_user.id, voice)
         voice.close()
-    elif message.text == 'location':
-        bot.send_chat_action(message.from_user.id,'upload location')
-        bot.send_location(message.from_user.id,43.207836,76.669086)
+
 
 while True:
     try:
